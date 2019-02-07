@@ -7,7 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=66493d54e65bfc12c7983ff2e884f37f"
 
 DEPENDS = "libjpeg-turbo mraa"
 
-SRC_URI = "https://github.com/intel-iot-devkit/upm/archive/v${PV}.tar.gz"
+SRC_URI = "git://github.com/intel-iot-devkit/upm.git"
+SRCREV = "b9988469ba5d353456d5a162ae807caa0475dbab"
 SRC_URI += "\
     file://0001-FindNodejs.cmake-parse-V8_MAJOR_VERSION-from-nodejs-.patch \
     file://0001-tcs37727-Added-upm-support-for-color-sensor-TCS37727.patch \
@@ -17,9 +18,7 @@ SRC_URI += "\
     file://0005-mma8x5x-Added-upm-support-for-some-MMA8X5X-sensors.patch \
     file://0006-examples-Added-some-examples-for-added-sensors.patch \
 "
-
-SRC_URI[md5sum] = "a5d64c79346220e68c62a42607cb20f9"
-SRC_URI[sha256sum] = "81d53b754c261075e7b58502bcfba6bd92a94399c9eece0ddd11a85d74356877"
+S = "${WORKDIR}/git/"
 
 inherit distutils-base pkgconfig python-dir cmake
 
